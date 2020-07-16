@@ -1,0 +1,22 @@
+{
+  "1": {
+    "hot_hint": "Se você não consegue ajudar, atrapalhe! O importante é participar.",
+    "name": "Felipe",
+    "surname": "Noronha",
+    "nickname": "YoDa",
+    "publication": "Livro do YoDa",
+    "publisher": "ABRIL",
+    "year": 2018,
+    "id": 1
+  },
+  "2": {
+    "hot_hint": "Acertar o tiro faz mais dano.",
+    "name": "Iago",
+    "surname": "Ferradans",
+    "nickname": "",
+    "publication": "Folha da B",
+    "publisher": "RGcorp",
+    "year": 2019,
+    "id": 2
+  }
+}

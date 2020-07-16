@@ -1,0 +1,23 @@
+{
+  "name": "rdicas-backend",
+  "version": "1.0.0",
+  "description": "This is the back-end for the (un) popular CS:GO useless hints apps",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paiva19/Rdicas-backend.git"
+  },
+  "author": "Lucas Paiva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paiva19/Rdicas-backend/issues"
+  },
+  "homepage": "https://github.com/Paiva19/Rdicas-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
