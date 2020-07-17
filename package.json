@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "This is the back-end for the (un) popular CS:GO useless hints apps",
   "main": "server.js",
+  "engines": {
+    "node": "10.16"
+  },
   "scripts": {
-    "start": "node server.js" 
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
