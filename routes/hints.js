@@ -36,38 +36,37 @@ const hintsRoutes = (app, fs) => {
     // routes
 
     // READ ALL
-    app.get("/all-the-hints", (req, res) => {
-        fs.readFile(dataPath, "utf8", (err, data) => {
-            if (err) {
-            throw err;
-            }
-
+    app.get("/hints", (req, res) => {
+        readFile((data) => {
             res.send(JSON.parse(data));
         });
     });
 
     // READ ONE AT RANDOM
-    app.get("/hint", (req, res) => {
+    app.get("/hints/random", (req, res) => {
         readFile((data) => {
         // get random hint
-        const hintId = Math.random() * Object.keys(data).length + 1;
-        data[hintId] = JSON.parse(req.body.data);
-    
-        writeFile(JSON.stringify(data, null, 2), () => {
-            res.status(200).send('Uma dica (provavelmente, a com ID :{hintId})foi atualizada');
-        });
+        const hintId = Math.floor(Math.random() * Object.keys(data).length);
+   
+        res.send(data[hintId])
         }, true);
     });
 
     // CREATE
-    app.post("/hint", (req, res) => {
+    app.post("/hints/create", (req, res) => {
         readFile((data) => {
-            const newHintId = Object.keys(data).length + 1;
-        
+            const newHintId = Object.keys(data).length;
+            
+            console.log(newHintId)
+
             // add the new hint
-            data[newHintId] = JSON.parse(req.body.data);
+            data[newHintId] = req.body;
+
+
+            console.log(data[newHintId])
 
             writeFile(JSON.stringify(data, null, 2), () => {
+                console.log(data)
                 res.status(200).send("R-Dica salva com sucesso!");
             });
         }, true);
@@ -78,7 +77,7 @@ const hintsRoutes = (app, fs) => {
         readFile((data) => {
         // update the new hint
         const hintId = req.params["id"];
-        data[hintId] = JSON.parse(req.body.data);
+        data[hintId] = req.body;
     
         writeFile(JSON.stringify(data, null, 2), () => {
             res.status(200).send("Uma dica (provavelmente, a com ID " + hintId + ")foi atualizada");
