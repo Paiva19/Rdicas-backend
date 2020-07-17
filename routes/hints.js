@@ -56,17 +56,11 @@ const hintsRoutes = (app, fs) => {
     app.post("/hints/create", (req, res) => {
         readFile((data) => {
             const newHintId = Object.keys(data).length;
-            
-            console.log(newHintId)
 
             // add the new hint
             data[newHintId] = req.body;
 
-
-            console.log(data[newHintId])
-
             writeFile(JSON.stringify(data, null, 2), () => {
-                console.log(data)
                 res.status(200).send("R-Dica salva com sucesso!");
             });
         }, true);
